@@ -36,7 +36,7 @@ public class TraineeController extends HttpServlet {
 		if(action.equalsIgnoreCase("showall")) {
 			List<Trainee> trainees = traineeService.getAll();
 			request.setAttribute("trainees", trainees);
-			rd = request.getRequestDispatcher("ShowAllTrainees.jsp");
+			rd = request.getRequestDispatcher("showAllTrainees.jsp");
 			rd.forward(request, response);
 		}
 		else if(action.equalsIgnoreCase("addtrainee")) {

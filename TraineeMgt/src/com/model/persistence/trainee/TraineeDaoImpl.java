@@ -44,31 +44,9 @@ public class TraineeDaoImpl implements TraineeDao{
 		return trainee;
 	}
 
-	@Override
-	public void deleteTrainee(int id) {
-		try {
-			PreparedStatement deleteData = connection.prepareStatement("delete from trainee where id=?");
-			deleteData.setInt(1, id);
-			deleteData.executeUpdate();
-		} catch (SQLException ex) {
-			ex.printStackTrace();
-		}
-	}
+	
 
-	@Override
-	public Trainee updateTrainee(int id, Trainee trainee) {
-		try {
-			PreparedStatement updateData = connection.prepareStatement("update trainee set branch=?, percentage=? where id=?");
-			updateData.setString(1, trainee.getBranch().toString());
-			updateData.setDouble(2, trainee.getPercentage());
-			updateData.setInt(3, id);
-			updateData.executeUpdate();
-		} catch (SQLException ex) {
-			ex.printStackTrace();
-		}
-		return trainee;
-	}
-
+	
 	@Override
 	public List<Trainee> getAll() throws DataAccessException {
 		List<Trainee> trainees = new ArrayList<>();
@@ -103,5 +81,7 @@ public class TraineeDaoImpl implements TraineeDao{
 		}
 		return Optional.ofNullable(trainee);
 	}
+
+	
 
 }

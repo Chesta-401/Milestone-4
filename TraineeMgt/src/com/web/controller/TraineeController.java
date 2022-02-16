@@ -24,11 +24,7 @@ public class TraineeController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// Disable cache in the browser to prevent going back in history after
-		// logging out or session out. This is particular for this page only.
-		response.setHeader("Cache-Control", "private,no-store,no-cache");
-		response.setHeader("Pragma", "no-cache");
-		response.setDateHeader("Expires", -1);
+		
 
 		String action = request.getParameter("action");
 		RequestDispatcher rd;
@@ -43,25 +39,7 @@ public class TraineeController extends HttpServlet {
 			rd = request.getRequestDispatcher("addTraineeRecord.jsp");
 			rd.forward(request, response);
 		}
-		else if(action.equalsIgnoreCase("delete")) {
-			Integer id = Integer.parseInt(request.getParameter("id").trim());
-			traineeService.deleteTrainee(id);
-			response.sendRedirect("TraineeController.do?action=showall");
-		}
-		else if(action.equalsIgnoreCase("update")) {
-			Integer id = Integer.parseInt(request.getParameter("id").trim());
-			try {
-				Trainee trainee = traineeService
-						.getById(id)
-						.orElseThrow(
-								()-> new TraineeNotFoundException("emp with id "+id+ "is not found")
-								);
-				request.setAttribute("trainee", trainee);
-				request.getRequestDispatcher("update.jsp").forward(request, response);
-			}catch(TraineeNotFoundException ex) {
-				ex.getMessage();
-			}
-		}
+		
 
 	}
 
@@ -77,9 +55,7 @@ public class TraineeController extends HttpServlet {
 		if(id==0) {
 			traineeService.addTrainee(trainee);
 		}
-		else {
-			traineeService.updateTrainee(id, trainee);
-		}
+		
 
 		response.sendRedirect("TraineeController.do?action=showall");
 	}

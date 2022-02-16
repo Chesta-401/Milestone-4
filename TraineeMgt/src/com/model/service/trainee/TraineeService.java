@@ -9,9 +9,7 @@ import com.model.persistence.trainee.Trainee;
 
 public interface TraineeService {
 	public Trainee addTrainee(Trainee trainee);
-	public void deleteTrainee(int id);
-	public Trainee updateTrainee(int id,Trainee trainee);
+	
 	public List<Trainee> getAll() throws DataAccessException;
-	public Optional<Trainee> getById(int id) throws TraineeNotFoundException;
-
+	
 }

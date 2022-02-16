@@ -10,8 +10,9 @@ import com.model.exceptions.TraineeNotFoundException;
 //DAO - Data Access Object
 public interface TraineeDao {
 	public Trainee addTrainee(Trainee trainee);
-	public void deleteTrainee(int id);
-	public Trainee updateTrainee(int id,Trainee trainee);
+	
 	public List<Trainee> getAll() throws DataAccessException;
+
 	public Optional<Trainee> getById(int id) throws TraineeNotFoundException;
+	
 }

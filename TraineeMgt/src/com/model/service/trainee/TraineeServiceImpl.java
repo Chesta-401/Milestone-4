@@ -23,15 +23,7 @@ public class TraineeServiceImpl implements TraineeService{
 		return traineeDao.addTrainee(trainee);
 	}
 
-	@Override
-	public void deleteTrainee(int id) {
-		traineeDao.deleteTrainee(id);
-	}
-
-	@Override
-	public Trainee updateTrainee(int id, Trainee trainee) {
-		return traineeDao.updateTrainee(id, trainee);
-	}
+	
 
 	@Override
 	public List<Trainee> getAll() throws DataAccessException {
@@ -40,10 +32,5 @@ public class TraineeServiceImpl implements TraineeService{
 		return trainees;
 	}
 
-	@Override
-	public Optional<Trainee> getById(int id) throws TraineeNotFoundException {
-		Optional<Trainee> trainee = traineeDao.getById(id);
-		return trainee;
-	}
-
+	
 }

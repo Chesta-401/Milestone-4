@@ -44,9 +44,6 @@ public class TraineeDaoImpl implements TraineeDao{
 		return trainee;
 	}
 
-	
-
-	
 	@Override
 	public List<Trainee> getAll() throws DataAccessException {
 		List<Trainee> trainees = new ArrayList<>();
